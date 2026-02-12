@@ -26,3 +26,16 @@ def test_add_track_isnt_string():
     error_message = str(error.value)
     assert error_message == "Song must be a string"
 
+"""
+Check that correct list is displayed to user
+"""
+
+def test_get_tracks_returns_correct_list():
+    history = MusicHistory()
+    history.add_track("song1")
+    history.add_track("song2")
+    history.add_track("song3")
+    actual = history.get_tracks()
+    expected = ["song1", "song2", "song3"]
+
+    assert actual == expected
