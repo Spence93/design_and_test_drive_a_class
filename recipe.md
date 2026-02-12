@@ -16,32 +16,24 @@ _Include the initializer, public properties, and public methods with all paramet
 ```python
 # EXAMPLE
 
-class Reminder:
-    # User-facing properties:
-    #   name: string
+class MusicHistory():
+  
 
-    def __init__(self, name):
+    def __init__(self):
         # Parameters:
-        #   name: string
+        
         # Side effects:
-        #   Sets the name property of the self object
-        pass # No code here yet
+        #   Create empty list to store tracks
+        
+    def add_track(self, song)
+        #Parameters: song = string
 
-    def remind_me_to(self, task):
-        # Parameters:
-        #   task: string representing a single task
-        # Returns:
-        #   Nothing
-        # Side-effects
-        #   Saves the task to the self object
-        pass # No code here yet
+        #Side effect - add song to track list
 
-    def remind(self):
-        # Returns:
-        #   A string reminding the user to do the task
-        # Side-effects:
-        #   Throws an exception if no task is set
-        pass # No code here yet
+
+    def get_tracks(self)
+        #return:    
+        #       List of tracks added    
 ```
 
 ## 3. Create Examples as Tests
@@ -52,28 +44,48 @@ _Make a list of examples of how the class will behave in different situations._
 # EXAMPLE
 
 """
-Given a name and a task
-#remind reminds the user to do the task
+When class initialised, check empty list is created
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("Walk the dog")
-reminder.remind() # => "Walk the dog, Kay!"
+history = MusicHistory()
+expected = []
+
 
 """
-Given a name and no task
-#remind raises an exception
+given a valid string, the track is added to the list
 """
-reminder = Reminder("Kay")
-reminder.remind() # raises an error with the message "No task set."
+history = MusicHistory()
+history.add_track("song1")
+expected = ["song1"]
 
 """
-Given a name and an empty task
-#remind still reminds the user to do the task, even though it looks odd
+Given a non string, check that correct exception raised
 """
-reminder = Reminder("Kay")
-reminder.remind_me_to("")
-reminder.remind() # => ", Kay!"
-```
+history = MusicHistory()
+history.add_track(5)
+expected = TypeError "error string" 
+
+"""
+given a valid string, the track is added to the list
+with multiple calls
+"""
+history = MusicHistory()
+history.add_track("song1")
+history.add_track("song2")
+history.add_track("song3")
+expected = ["song1", "song2", "song3"]
+
+
+"""
+Check that correct list is displayed to user
+"""
+istory = MusicHistory()
+history.add_track("song1")
+history.add_track("song2")
+history.add_track("song3")
+actual = get_tracks()
+expected = ["song1", "song2", "song3"]
+
+
 
 _Encode each example as a test. You can add to the above list as you go._
 
